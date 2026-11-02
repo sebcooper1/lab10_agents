@@ -6,7 +6,7 @@ from order_tool import OrderLookup
 from stock_tool import StockLookup
 
 order_tool = OrderLookup({"A100": "shipped", "A101": "processing"})
-stock_tool = StockLookup ({"rain jacket": 12, "day pack": 0})
+stock_tool = StockLookup({"rain jacket": 12, "day pack": 0})
 
 sunny = SupportChatbot("sunny", "You are cheerful and brief", order_tool, stock_tool)
 
@@ -22,4 +22,3 @@ print(sunny.history[1]["content"])
 print(river.history[1]["content"])
 print(sunny.instructions)
 print(river.instructions)
- 

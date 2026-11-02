@@ -1,6 +1,6 @@
 class OrderLookup:
     """A tool that knows about orders. It knows nothing about chatting."""
-    
+
     def __init__(self, orders):
         """Stores the orders this tool can look up."""
         self.orders = orders
@@ -17,5 +17,3 @@ class OrderLookup:
         if order_id in self.orders:
             return self.orders[order_id]
         return None
-
-    

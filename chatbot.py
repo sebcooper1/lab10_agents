@@ -1,5 +1,6 @@
 HANDOFF_WORDS = ["address", "payment", "card"]
 
+
 class SupportChatbot:
     def __init__(self, name, instructions, order_tool, stock_tool):
         self.name = name
@@ -27,6 +28,7 @@ class SupportChatbot:
         if "hello" in text or "hi" in text:
             return "Hello! I'm Ben Melah. I can check an order status for you. Please provide your order ID."
         return "I'm not sure how to respond to that. I can check an order status."
+
     def needs_human(self, text):
         """Return True if the message is about something a human must handle."""
         for word in HANDOFF_WORDS:
@@ -42,7 +44,7 @@ class SupportChatbot:
             return "Which order? Please send an order ID like A100."
         status = self.order_tool.find_status(order_id)
         return f"Order {order_id} is {status}."
-    
+
     def stock_reply(self, user_message):
         """Use the stock tool to answer a question about a product."""
 
@@ -54,8 +56,7 @@ class SupportChatbot:
         count = self.stock_tool.count_for(product)
 
         return f"We have {count} of the {product} in stock."
-   
-    
+
     def count_user_messages(self):
         """Return the number of messages sent by the user so far."""
         count = 0
@@ -63,6 +64,5 @@ class SupportChatbot:
         for message in self.history:
             if message["role"] == "user":
                 count += 1
-        
-        return count
 
+        return count

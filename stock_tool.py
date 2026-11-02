@@ -1,6 +1,7 @@
 # stock_tool.py
 # Sebastian Cooper
 
+
 class StockLookup:
     """A tool that knows how many of each item is in stock"""
 
@@ -20,5 +21,3 @@ class StockLookup:
         if product in self.stock:
             return self.stock[product]
         return None
-    
-    
